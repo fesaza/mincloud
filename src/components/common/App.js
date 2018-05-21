@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import NavItemLink from './NavItemLink';
 import { navItems } from '../../utils/MenuItems';
 import Home from '../home/HomePage';
-import Members from '../members/MembersPage';
+import Members from '../../containers/members/MembersListPage';
 
 const styles = {
   content: { minHeight: 'auto' },
@@ -23,8 +23,8 @@ const AppPage = ({ toolbarTitle, location }) => (
     contentClassName="md-grid"
   >
     <Switch key={location.pathname}>
-      <Route path={navItems[0].to} exact component={Members} />
-      <Route path={navItems[1].to} component={Home} />
+      <Route path={navItems[0].to} exact component={Home} />
+      <Route path={navItems[1].to} component={Members} />
     </Switch>
   </NavigationDrawer>
 );

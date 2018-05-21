@@ -1,6 +1,10 @@
-// import { combineReducers } from 'redux';
-// import members from './MembersReducers';
+import { combineReducers } from 'redux';
+import members from './MembersReducers';
+import financial from './FinancialReducers';
 
-// ​export default combineReducers({
-//   members
-// });
+const rootReduer = combineReducers({
+  members,
+  financial,
+});
+
+export default rootReduer;

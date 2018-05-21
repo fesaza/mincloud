@@ -2,7 +2,7 @@ import LocalizedStrings from 'react-localization';
 
 const labels = new LocalizedStrings({
   es: {
-    membersTitle: 'Miembros',
+    membersTitle: 'Lista de miembros',
     addMembers: 'Nuevo miembro',
   },
   en: {

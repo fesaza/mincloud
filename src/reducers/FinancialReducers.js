@@ -1,6 +1,6 @@
 import * as membersActions from '../actions/MembersActions';
 
-const members = (state = {
+const financial = (state = {
   isFetching: false,
   items: [],
 }, action) => {
@@ -21,4 +21,4 @@ const members = (state = {
   }
 };
 
-export default members;
+export default financial;

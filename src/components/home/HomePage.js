@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Home = () => (
-  <div>
-  Pagina de inicio
-  </div>
+  <h1>
+  MINCLOUD
+  </h1>
 );
 
 export default Home;

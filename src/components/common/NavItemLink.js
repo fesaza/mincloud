@@ -35,7 +35,7 @@ const NavItemLink = ({
 
 NavItemLink.propTypes = {
   label: PropTypes.string.isRequired,
-  to: PropTypes.string,
+  to: PropTypes.string.isRequired,
   exact: PropTypes.bool,
   icon: PropTypes.node,
 };
