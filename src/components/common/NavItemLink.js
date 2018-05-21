@@ -10,7 +10,9 @@ import { FontIcon, ListItem } from 'react-md';
  * with Route to make sure that the active state is correctly applied after
  * an item has been clicked.
  */
-const NavItemLink = ({ label, to, icon, exact }) => (
+const NavItemLink = ({
+  label, to, icon, exact,
+}) => (
   <Route path={to} exact={exact}>
     {({ match }) => {
       let leftIcon;
