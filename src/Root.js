@@ -1,15 +1,23 @@
 import React from 'react';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux'
 import { BrowserRouter as Router} from 'react-router-dom';
 import App from './App';
+import Login from './components/login/Login';
 
-const Root = ({ store }) => (
-  // <Provider store={store}>
+const isAuth = true;
+
+const Root = ({ store }) => {
+ let Base = App;
+ if(!isAuth){
+  Base = Login;
+ }
+ return (
+  <Provider store={store}>
     <Router>
-      <App />
+      <Base />
     </Router>
-  // </Provider>
-);
+  </Provider>
+)};
 
 //Root.propTypes = {
   //store: PropTypes.object.isRequired,
