@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
 import { NavigationDrawer } from 'react-md';
@@ -9,13 +9,14 @@ import NavItemLink from './components/common/NavItemLink';
 import { toTitle } from './utils/Utils';
 import Home from './components/home/HomePage';
 import Members from './components/members/MembersPage';
+import labels from './utils/Localization';
 import './App.css';
 
 const styles = {
   content: { minHeight: 'auto' },
 };
 
-class App extends Component {
+class App extends PureComponent {
   static propTypes = {
     location: PropTypes.object.isRequired,
   };
@@ -31,14 +32,14 @@ class App extends Component {
 
   getCurrentTitle = ({ location: { pathname } }) => {
     const lastSection = pathname.substring(pathname.lastIndexOf('/') + 1);
-    if (lastSection === 'navigation-drawers') {
-      return 'Inbox';
+    if (!lastSection) {
+      return labels.addMembers;
     }
 
     return toTitle(lastSection);
   };
 
-  getMarkup() {
+  getMarkup = () => {
     const { toolbarTitle } = this.state;
     const { location } = this.props;
     return (

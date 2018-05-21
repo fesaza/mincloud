@@ -1,12 +1,15 @@
+
+import labels from '../utils/Localization';
+
 const TO_PREFIX = '';
 
-export const navItems = [{
-  label: 'Inbox',
+const navItems = [{
+  label: labels.addMembers,
   to: `${TO_PREFIX}/`,
   exact: true,
   icon: 'inbox',
 }, {
-  label: 'Starred',
+  label: labels.membersTitle,
   to: `${TO_PREFIX}/starred`,
   icon: 'star',
 }, {
@@ -18,3 +21,5 @@ export const navItems = [{
   to: `${TO_PREFIX}/drafts`,
   icon: 'drafts',
 }];
+
+export { navItems };
