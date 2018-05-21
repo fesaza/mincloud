@@ -1,10 +1,11 @@
 import { put, call, fork } from 'redux-saga/effects';
 import axios from 'axios';
 import * as membersActions from '../actions/MembersActions';
+import * as settings from '../config';
 
 
 export function fetchMembersApi() {
-  return axios.get('https://api.lappiz.io/Mincloud_Lappiz.api/api/Mincloud_Lappiz_Personass?$format=json&$top=10&$inlinecount=allpages')
+  return axios.get(`${settings.URL_DATA}/Mincloud_Lappiz_Personass?$format=json&$top=10&$inlinecount=allpages`)
     .then(response => response.data.d.results)
     .catch((error) => {
       throw error;
