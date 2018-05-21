@@ -1,4 +1,5 @@
-import React, { PureComponent } from 'react';
+// @flow
+import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
 import { NavigationDrawer } from 'react-md';
@@ -14,7 +15,7 @@ const styles = {
   content: { minHeight: 'auto' },
 };
 
-class App extends PureComponent {
+class App extends Component {
   static propTypes = {
     location: PropTypes.object.isRequired,
   };
