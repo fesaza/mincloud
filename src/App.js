@@ -1,20 +1,11 @@
 // @flow
 import React, { PureComponent } from 'react';
-import { withRouter } from 'react-router';
-import { Route, Switch } from 'react-router-dom';
-import { NavigationDrawer } from 'react-md';
 import PropTypes from 'prop-types';
-import { navItems } from './utils/MenuItems';
-import NavItemLink from './components/common/NavItemLink';
+import { withRouter } from 'react-router';
 import { toTitle } from './utils/Utils';
-import Home from './components/home/HomePage';
-import Members from './components/members/MembersPage';
 import labels from './utils/Localization';
+import AppPage from './components/common/App';
 import './App.css';
-
-const styles = {
-  content: { minHeight: 'auto' },
-};
 
 class App extends PureComponent {
   static propTypes = {
@@ -43,29 +34,13 @@ class App extends PureComponent {
     const { toolbarTitle } = this.state;
     const { location } = this.props;
     return (
-      <NavigationDrawer
-        toolbarTitle={toolbarTitle}
-        mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY_MINI}
-        tabletDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
-        desktopDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
-        navItems={navItems.map(props => <NavItemLink {...props} key={props.to} />)}
-        contentId="main-demo-content"
-        contentStyle={styles.content}
-        contentClassName="md-grid"
-      >
-        <Switch key={location.pathname}>
-          <Route path={navItems[0].to} exact component={Members} />
-          <Route path={navItems[1].to} component={Home} />
-        </Switch>
-      </NavigationDrawer>
+      <AppPage toolbarTitle={toolbarTitle} location={location} />
     );
   }
 
-  render() {
-    return (
-      this.getMarkup()
-    );
-  }
+  render = () => (
+    this.getMarkup()
+  )
 }
 
 export default withRouter(App);
