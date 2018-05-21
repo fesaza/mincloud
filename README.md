@@ -1,3 +1,13 @@
+DONT UPDATE THIS BRANCH
+
+This branch is only used as a getting started applicationts to avoid a lot of bolierplates configurations when you need a react application with redux, this kit-start use the follow packages as built-in:
+
+- [React](https://reactjs.org)
+- [React-md components](https://react-md.mlaursen.com/)
+- [Redux Framework](https://redux.js.org/)
+
+Just clone and runt `yarn start` enjoy!!
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
