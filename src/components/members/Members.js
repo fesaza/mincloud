@@ -1,31 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardTitle, CardText, Button } from 'react-md';
+import { Card, CardText, Button } from 'react-md';
 import MemberItem from './MemberItem';
-import labels from '../../utils/Localization';
 
-const styleButton = { marginLeft: 'auto' };
+const styleButton = { margin: '2px' };
+const styleSection = { width: '100%', marginBottom: '16px' };
 
-const Members = ({ items }) => (
-  <Card>
-    <CardTitle
-      title={
-        (
-          <div>
-            {labels.membersTitle}
+class Members extends Component {
+  static propTypes = {
+    items: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    load: PropTypes.func.isRequired,
+  };
+
+  componentDidMount() {
+    if (!this.props.items.length > 0) {
+      this.props.load();
+    }
+  }
+
+  render() {
+    const { items, isFetching } = this.props;
+    return (
+      <Card style={{ opacity: isFetching ? 0.5 : 1 }}>
+        <CardText>
+          <section style={styleSection}>
             <Button style={styleButton} floating secondary mini >person_add</Button>
-          </div>
-        )
-      }
-    />
-    <CardText>
-      {items.map(member => <MemberItem key={member.Id} member={member} />)}
-    </CardText>
-  </Card>
-);
-
-Members.propTypes = {
-  items: PropTypes.array.isRequired,
-};
+            <Button style={styleButton} floating secondary mini >search</Button>
+          </section>
+          {items.map(member => <MemberItem key={member.Id} member={member} />)}
+        </CardText>
+      </Card>
+    );
+  }
+}
 
 export default Members;

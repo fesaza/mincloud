@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import Members from '../../components/members/Members';
+import { requestMembers } from '../../actions/MembersActions';
 
+const mapDispatchToProps = dispatch => ({
+  load: () => dispatch(requestMembers()),
+});
 
 function mapStateToProps(state) {
   const { members } = state;
@@ -9,5 +13,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Members);
+export default connect(mapStateToProps, mapDispatchToProps)(Members);
 

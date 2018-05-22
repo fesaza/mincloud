@@ -5,10 +5,11 @@ const members = (state = {
   items: [],
 }, action) => {
   switch (action.type) {
+    case membersActions.RESTART_MEMBERS_CACHE:
     case membersActions.REQUEST_MEMBERS:
       return {
+        items: [],
         isFetching: true,
-        ...state,
       };
     case membersActions.RECEIVE_MEMBERS:
       return {
