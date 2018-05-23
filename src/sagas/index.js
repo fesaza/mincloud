@@ -1,6 +1,6 @@
 // @flow
 
-import { put, call, takeLatest, fork } from 'redux-saga/effects';
+import { put, call, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import * as membersActions from '../actions/MembersActions';
 import DataSourceModel from '../models/DataSourceModel';
@@ -23,11 +23,7 @@ export function* fetchMembers(action) {
   yield put(membersActions.receiveMembers(members));
 }
 
-export function* fetchFilterMembers(action) {
-  yield fork(fetchMembers, action);
-}
-
 export default function* root() {
   yield takeLatest(membersActions.REQUEST_MEMBERS, fetchMembers);
-  yield takeLatest(membersActions.FILTER_MEMBERS, fetchFilterMembers);
+  yield takeLatest(membersActions.FILTER_MEMBERS, fetchMembers);
 }
