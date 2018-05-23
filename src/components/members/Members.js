@@ -9,6 +9,7 @@ class Members extends Component {
     items: PropTypes.array.isRequired,
     isFetching: PropTypes.bool.isRequired,
     load: PropTypes.func.isRequired,
+    onFilter: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -18,11 +19,11 @@ class Members extends Component {
   }
 
   render() {
-    const { items, isFetching } = this.props;
+    const { items, isFetching, onFilter } = this.props;
     return (
       <Card style={{ opacity: isFetching ? 0.5 : 1 }}>
         <CardText>
-          <ListHeader icon="people" />
+          <ListHeader icon="people" onFilter={onFilter} />
           {items.map(member => <MemberItemCard key={member.Id} dataItem={member} />)}
         </CardText>
       </Card>

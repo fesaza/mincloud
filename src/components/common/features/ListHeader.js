@@ -6,7 +6,7 @@ import labels from '../../../utils/Localization';
 const styleButton = { margin: '2px' };
 const styleHeaderIcon = { textAlign: 'center' };
 
-const ListHeader = ({ icon }) => (
+const ListHeader = ({ icon, onFilter }) => (
   <Grid >
     <Cell size={1} style={styleHeaderIcon}>
       <FontIcon style={{ fontSize: '40px' }}>{icon}</FontIcon>
@@ -17,6 +17,7 @@ const ListHeader = ({ icon }) => (
         name="filterCards"
         leftIcon={<FontIcon>search</FontIcon>}
         placeholder={labels.filter}
+        onChange={onFilter}
       />
     </Cell>
     <Cell size={1} />
@@ -30,6 +31,7 @@ const ListHeader = ({ icon }) => (
 
 ListHeader.propTypes = {
   icon: PropTypes.string,
+  onFilter: PropTypes.func.isRequired,
 };
 
 ListHeader.defaultProps = {

@@ -1,22 +1,33 @@
-import { put, call, takeLatest } from 'redux-saga/effects';
+// @flow
+
+import { put, call, takeLatest, fork } from 'redux-saga/effects';
 import axios from 'axios';
 import * as membersActions from '../actions/MembersActions';
-import * as settings from '../config';
+import DataSourceModel from '../models/DataSourceModel';
 
-export function fetchMembersApi() {
-  return axios.get(`${settings.URL_DATA}/Mincloud_Lappiz_Personass?$format=json&$top=20&$inlinecount=allpages`)
+function getDataSource(action) {
+  return new DataSourceModel('Mincloud_Lappiz_Personass', 20, action.filter);
+}
+
+export function fetchMembersApi(ds) {
+  const url = ds.getUrl();
+  return axios.get(url)
     .then(response => response.data.d.results)
-    // .then(items => items.map(item => JSON.parse(item)))
     .catch((error) => {
       throw error;
     });
 }
 
-export function* fetchMembers() {
-  const members = yield call(fetchMembersApi);
+export function* fetchMembers(action) {
+  const members = yield call(fetchMembersApi, getDataSource(action));
   yield put(membersActions.receiveMembers(members));
+}
+
+export function* fetchFilterMembers(action) {
+  yield fork(fetchMembers, action);
 }
 
 export default function* root() {
   yield takeLatest(membersActions.REQUEST_MEMBERS, fetchMembers);
+  yield takeLatest(membersActions.FILTER_MEMBERS, fetchFilterMembers);
 }
