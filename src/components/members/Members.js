@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardText, Button } from 'react-md';
+import { Card, CardText } from 'react-md';
 import MemberItemCard from './MemberItemCard';
-
-const styleButton = { margin: '2px' };
-const styleSection = { width: '100%', marginBottom: '16px' };
+import { ListHeader } from '../common';
 
 class Members extends Component {
   static propTypes = {
@@ -24,10 +22,7 @@ class Members extends Component {
     return (
       <Card style={{ opacity: isFetching ? 0.5 : 1 }}>
         <CardText>
-          <section style={styleSection}>
-            <Button style={styleButton} floating secondary mini >person_add</Button>
-            <Button style={styleButton} floating secondary mini >search</Button>
-          </section>
+          <ListHeader icon="people" />
           {items.map(member => <MemberItemCard key={member.Id} dataItem={member} />)}
         </CardText>
       </Card>

@@ -7,6 +7,10 @@ const labels = new LocalizedStrings({
     address: 'Dirección',
     phone: 'Teléfono',
     email: 'Correo',
+    filter: 'Filtrar',
+    addItem: 'Crear',
+    editItem: 'Editar registro',
+    deleteItem: 'Eliminar registro',
   },
   en: {
     membersTitle: 'Members',
@@ -14,6 +18,10 @@ const labels = new LocalizedStrings({
     address: 'Address',
     phone: 'Phone',
     email: 'Email',
+    filter: 'Filter',
+    addItem: 'Create',
+    editItem: 'Edit item',
+    deleteItem: 'Delete item',
   },
 });
 
