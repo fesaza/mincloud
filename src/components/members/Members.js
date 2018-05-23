@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardText, Button } from 'react-md';
-import MemberItem from './MemberItem';
+import MemberItemCard from './MemberItemCard';
 
 const styleButton = { margin: '2px' };
 const styleSection = { width: '100%', marginBottom: '16px' };
@@ -28,7 +28,7 @@ class Members extends Component {
             <Button style={styleButton} floating secondary mini >person_add</Button>
             <Button style={styleButton} floating secondary mini >search</Button>
           </section>
-          {items.map(member => <MemberItem key={member.Id} member={member} />)}
+          {items.map(member => <MemberItemCard key={member.Id} dataItem={member} />)}
         </CardText>
       </Card>
     );
