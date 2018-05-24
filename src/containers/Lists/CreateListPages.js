@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  * This HOC load the data and admin the cache and pass to ListComponent via props
  * @param {Component | PureComponent} ListComponent
  */
-const ListPages = ListComponent => class extends Component {
+const createListPage = ListComponent => class extends Component {
     static propTypes = {
       items: PropTypes.array.isRequired,
       load: PropTypes.func.isRequired,
@@ -25,4 +25,4 @@ const ListPages = ListComponent => class extends Component {
     }
 };
 
-export default ListPages;
+export default createListPage;
