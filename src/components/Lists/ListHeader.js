@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, TextField, FontIcon, Grid, Cell } from 'react-md';
-import labels from '../../../utils/Localization';
+import labels from '../../utils/Localization';
 
 const styleButton = { margin: '2px' };
 const styleHeaderIcon = { textAlign: 'center' };

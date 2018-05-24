@@ -1,10 +1,9 @@
-// features
-import ListHeader from './features/ListHeader';
 
 // forms controls
 import DateField from './formControls/DateField';
 
 // others
 import NavItemLink from './NavItemLink';
+import App from './App';
 
-export { ListHeader, DateField, NavItemLink };
+export { DateField, NavItemLink, App };

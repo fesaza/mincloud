@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import Members from '../../components/members/Members';
+import CardList from '../../components/Lists/CardList';
 import { requestMembers, filterItems } from '../../actions/MembersActions';
+import ListPages from '../Lists/ListPages';
 
 const mapDispatchToProps = dispatch => ({
   load: () => dispatch(requestMembers()),
@@ -14,5 +15,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Members);
+export default connect(mapStateToProps, mapDispatchToProps)(ListPages(CardList));
 

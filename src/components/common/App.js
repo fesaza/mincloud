@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import NavItemLink from './NavItemLink';
 import { navItems } from '../../utils/MenuItems';
 import Home from '../home/HomePage';
-import Members from '../../containers/members/MembersListPage';
+import Members from '../../containers/Lists/MembersListPage';
 
 const styles = {
   content: { minHeight: 'auto' },
