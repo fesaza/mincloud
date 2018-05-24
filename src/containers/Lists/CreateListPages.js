@@ -10,6 +10,8 @@ const createListPage = ListComponent => class extends Component {
     static propTypes = {
       items: PropTypes.array.isRequired,
       load: PropTypes.func.isRequired,
+      isFetching: PropTypes.bool.isRequired,
+      onFilter: PropTypes.func.isRequired,
     };
 
     componentDidMount() {
