@@ -1,6 +1,10 @@
 
 import * as settings from '../config';
 
+/**
+ * This class must be the only way to acces odata api, is the only class authorized to build urls
+ * to consume Odata api
+ */
 export default class DataSourceModel {
   filter;
   pageSize;

@@ -18,7 +18,7 @@ const AppPage = ({ toolbarTitle, location }) => (
     tabletDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
     desktopDrawerType={NavigationDrawer.DrawerTypes.PERSISTENT_MINI}
     navItems={navItems.map(menuItem => <NavItemLink {...menuItem} key={menuItem.to} />)}
-    contentId="main-demo-content"
+    contentId="main-app-content"
     contentStyle={styles.content}
     contentClassName="md-grid"
   >
