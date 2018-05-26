@@ -4,8 +4,8 @@ import createListPages from './CreateListPages';
 
 
 const mapDispatchToProps = dispatch => ({
-  load: () => dispatch(requestMembers()),
-  onFilter: filter => dispatch(filterItems(`substringof('${filter}', CECENombre)`)),
+  load: dataSource => dispatch(requestMembers(dataSource)),
+  onFilterAction: dataSource => dispatch(filterItems(dataSource)),
 });
 
 function mapStateToProps(state) {

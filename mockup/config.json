@@ -12,8 +12,8 @@
       "canAdd": true,
       "icon": "person",
       "dataSource": {
-        "path" : "Mincloud_Lappiz_Personas",
-        "pageSize" : 20,
+        "path" : "Mincloud_Lappiz_Personass",
+        "pageSize" : 30,
         "filter" : "",
         "expand": "",
         "select": ""
@@ -21,7 +21,7 @@
       "fields": [
         { "id": "1", "label": "Nombre completo", "code": "CECENombre"},
         { "id": "2", "label": "Clasificación", "code": "Clasificacion"},
-        { "id": "3", "label": "Genero", "code": "Sexo"}
+        { "id": "3", "label": "Sexo", "code": "Sexo"}
       ]
     }
   },

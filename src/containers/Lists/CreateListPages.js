@@ -23,7 +23,7 @@ const createListPage = () => {
       items: PropTypes.array.isRequired,
       load: PropTypes.func.isRequired,
       isFetching: PropTypes.bool.isRequired,
-      onFilter: PropTypes.func.isRequired,
+      onFilterAction: PropTypes.func.isRequired,
       configuration: PropTypes.object,
     };
 
@@ -33,15 +33,25 @@ const createListPage = () => {
 
     componentDidMount() {
       if (!this.props.items.length > 0) {
-        this.props.load();
+        const { configuration } = this.props;
+        this.props.load(configuration.dataSource);
       }
     }
+
+    getOnFilter = () => (
+      (filter) => {
+        const filterExpression = `substringof('${filter}', CECENombre)`;
+        const ds = { ...this.props.configuration.dataSource };
+        ds.filter = filterExpression;
+        this.props.onFilterAction(ds);
+      }
+    )
 
     render() {
       const { configuration } = this.props;
       const ListComponent = configuration.type === ComponentTypes.CardList ? CardList : GridList;
       return (
-        <ListComponent {...this.props} />
+        <ListComponent {...this.props} onFilter={this.getOnFilter()} />
       );
     }
   }
