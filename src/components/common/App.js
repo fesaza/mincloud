@@ -5,7 +5,8 @@ import PropTypes from 'prop-types';
 import NavItemLink from './NavItemLink';
 import { navItems } from '../../utils/MenuItems';
 import Home from '../home/HomePage';
-import Members from '../../containers/Lists/MembersListPage';
+//import Members from '../../containers/Lists/MembersListPage';
+import Feature from '../../containers/feature/Feature';
 
 const styles = {
   content: { minHeight: 'auto' },
@@ -24,7 +25,7 @@ const AppPage = ({ toolbarTitle, location }) => (
   >
     <Switch key={location.pathname}>
       <Route path={navItems[0].to} exact component={Home} />
-      <Route path={navItems[1].to} component={Members} />
+      <Route path="/feature/:featureId" component={Feature} />
     </Switch>
   </NavigationDrawer>
 );

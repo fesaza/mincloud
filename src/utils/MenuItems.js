@@ -10,7 +10,7 @@ const navItems = [{
   icon: 'inbox',
 }, {
   label: labels.membersTitle,
-  to: `${TO_PREFIX}/starred`,
+  to: `${TO_PREFIX}/feature`,
   icon: 'star',
 }, {
   label: 'Send mail',

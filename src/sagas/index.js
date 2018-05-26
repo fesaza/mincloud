@@ -1,9 +1,11 @@
 // @flow
 
-import { put, call, takeLatest, fork } from 'redux-saga/effects';
+import { put, call, takeLatest, fork, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 import * as membersActions from '../actions/MembersActions';
+import * as configActions from '../actions/ConfigActions';
 import DataSourceModel from '../models/DataSourceModel';
+import { fetchConfigFeature } from './Config';
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
@@ -34,4 +36,5 @@ export function* fetchFilterMembers(action) {
 export default function* root() {
   yield takeLatest(membersActions.REQUEST_MEMBERS, fetchMembers);
   yield takeLatest(membersActions.FILTER_MEMBERS, fetchFilterMembers);
+  yield takeEvery(configActions.REQUEST_CONFIG_FEATURE, fetchConfigFeature);
 }

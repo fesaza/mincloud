@@ -1,9 +1,10 @@
 // @flow
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { toTitle } from './utils/Utils';
-import labels from './utils/Localization';
+// import { toTitle } from './utils/Utils';
+// import labels from './utils/Localization';
 import AppPage from './components/common/App';
 import './App.css';
 
@@ -21,14 +22,16 @@ class App extends PureComponent {
     this.setState({ toolbarTitle: this.getCurrentTitle(nextProps) });
   }
 
-  getCurrentTitle = ({ location: { pathname } }) => {
-    const lastSection = pathname.substring(pathname.lastIndexOf('/') + 1);
-    if (!lastSection) {
-      return labels.addMembers;
-    }
+  getCurrentTitle = (/* { location: { pathname } } */) =>
 
-    return toTitle(lastSection);
-  };
+    'Feature'
+    // const lastSection = pathname.substring(pathname.lastIndexOf('/') + 1);
+    // if (!lastSection) {
+    //   return labels.addMembers;
+    // }
+
+    // return toTitle(lastSection);
+  ;
 
   getMarkup = () => {
     const { toolbarTitle } = this.state;
@@ -43,4 +46,4 @@ class App extends PureComponent {
   )
 }
 
-export default withRouter(App);
+export default connect()(withRouter(App));

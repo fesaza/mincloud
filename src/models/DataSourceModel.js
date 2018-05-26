@@ -6,15 +6,8 @@ import * as settings from '../config';
  * to consume Odata api
  */
 export default class DataSourceModel {
-  filter;
-  pageSize;
-  entity;
-  expand;
-  select;
-  opts;
-
-  constructor(entity: string, pageSize: number, filter: string, expand, select) {
-    this.entity = entity;
+  constructor(path: string, pageSize: number, filter: string, expand, select) {
+    this.path = path;
     this.pageSize = pageSize || 20;
     this.filter = filter ? `$filter=${filter}` : '';
     this.expand = expand;
@@ -27,7 +20,7 @@ export default class DataSourceModel {
 
   getUrl(): string {
     const baseUrl = settings.URL_DATA;
-    const { entity, opts, pageSize } = this;
-    return `${baseUrl}/${entity}?$format=json&$top=${pageSize}&$inlinecount=allpages&${opts.filter(op => op).join('&')}`;
+    const { path, opts, pageSize } = this;
+    return `${baseUrl}/${path}?$format=json&$top=${pageSize}&$inlinecount=allpages&${opts.filter(op => op).join('&')}`;
   }
 }
