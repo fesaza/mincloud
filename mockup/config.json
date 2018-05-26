@@ -5,26 +5,24 @@
   "membersGrid":{
     "id":"membersGrid",
     "type": "Feature",
-    "components":{
-      "memberList" : {
-        "id":"MemberList",
-        "type":"GridList",
-        "canFilter": true,
-        "canAdd": true,
-        "icon": "person",
-        "dataSource": {
-          "path" : "Mincloud_Lappiz_Personas",
-          "pageSize" : 20,
-          "filter" : "",
-          "expand": "",
-          "select": ""
-        },
-        "fields": [
-          { "id": "1", "label": "Nombre completo", "code": "CECENombre"},
-          { "id": "2", "label": "Clasificación", "code": "Clasificacion"},
-          { "id": "3", "label": "Genero", "code": "Sexo"}
-        ]
-      }
+    "component":{
+      "id":"MemberList",
+      "type":"GridList",
+      "canFilter": true,
+      "canAdd": true,
+      "icon": "person",
+      "dataSource": {
+        "path" : "Mincloud_Lappiz_Personas",
+        "pageSize" : 20,
+        "filter" : "",
+        "expand": "",
+        "select": ""
+      },
+      "fields": [
+        { "id": "1", "label": "Nombre completo", "code": "CECENombre"},
+        { "id": "2", "label": "Clasificación", "code": "Clasificacion"},
+        { "id": "3", "label": "Genero", "code": "Sexo"}
+      ]
     }
   },
   "profile": { "name": "typicode" }

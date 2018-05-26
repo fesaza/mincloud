@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import createComponentFeature from './createComponentFeature';
 
 class FeaturePage extends Component {
   static propTypes = {
@@ -9,11 +10,19 @@ class FeaturePage extends Component {
 
   componentDidMount() {
     const { load, match } = this.props;
-    load(match.params.featureId);
+    const { featureId } = match.params;
+    load(featureId);
+  }
+
+  getBaseComponent = () => {
+    const { match } = this.props;
+    const config = this.props[match.params.featureId];
+    const ChildComp = createComponentFeature(config);
+    return (<ChildComp {...this.props} />);
   }
 
   render() {
-    return (<div>hello</div>);
+    return this.getBaseComponent();
   }
 }
 
