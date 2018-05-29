@@ -1,5 +1,6 @@
+/* global describe it expect */
 import * as dataItemsActions from '../DataItemsActions';
-import { mapDataSource} from '../../utils/Utils';
+import { mapDataSource } from '../../utils/Utils';
 
 describe('dataitems actions', () => {
   const dataSource = {

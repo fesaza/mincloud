@@ -1,3 +1,4 @@
+/* global describe it expect */
 import reducer from '../ConfigReducers';
 import * as actions from '../../actions/ConfigActions';
 

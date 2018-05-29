@@ -1,0 +1,11 @@
+{
+  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "window.zoomLevel": 0,
+  "team.showWelcomeMessage": false,
+  "git.enableSmartCommit": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay":10000,
+  "editor.tabSize": 2,
+  "javascript.validate.enable": false,
+  "jest.showCoverageOnLoad": true
+}

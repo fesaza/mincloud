@@ -1,3 +1,4 @@
+/* global describe it expect */
 import * as configActions from '../ConfigActions';
 
 describe('config actions', () => {
@@ -17,6 +18,7 @@ describe('config actions', () => {
       configuration,
       featureId,
     };
-    expect(configActions.receiveConfigFeature(configuration, featureId)).toEqual(expectedRequestFeature);
+    expect(configActions.receiveConfigFeature(configuration, featureId))
+      .toEqual(expectedRequestFeature);
   });
 });
