@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
-import members from './MembersReducers';
-import financial from './FinancialReducers';
+import members from './DataItemsReducers';
 import config from './ConfigReducers';
 
 const rootReduer = combineReducers({
   members,
-  financial,
   config,
 });
 

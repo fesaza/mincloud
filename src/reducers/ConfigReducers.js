@@ -1,7 +1,9 @@
 
 import * as configActions from '../actions/ConfigActions';
 
-const config = (state = {}, action) => {
+const initialState = {};
+
+const config = (state = initialState, action) => {
   switch (action.type) {
     case configActions.REQUEST_CONFIG_FEATURE: {
       const newState = {

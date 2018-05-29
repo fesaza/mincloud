@@ -1,9 +1,11 @@
-import * as membersActions from '../actions/MembersActions';
+import * as membersActions from '../actions/DataItemsActions';
 
-const members = (state = {
+const initialState = {
   isFetching: false,
   items: [],
-}, action) => {
+};
+
+const members = (state = initialState, action) => {
   switch (action.type) {
     case membersActions.RESTART_MEMBERS_CACHE:
     case membersActions.REQUEST_MEMBERS:
@@ -15,7 +17,7 @@ const members = (state = {
       return {
         ...state,
         isFetching: false,
-        items: action.members,
+        items: [...action.items],
       };
     default:
       return state;

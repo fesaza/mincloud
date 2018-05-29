@@ -8,11 +8,12 @@ import * as settings from '../config';
 export default class DataSourceModel {
   constructor(path: string, pageSize: number, filter: string, expand, select) {
     this.path = path;
-    this.pageSize = pageSize || 20;
+    this.pageSize = `$top=${pageSize || 20}`;
     this.filter = filter ? `$filter=${filter}` : '';
-    this.expand = expand;
-    this.select = select;
+    this.expand = expand ? `$expand=${expand}` : '';
+    this.select = select ? `$select=${select}` : '';
     this.opts = [];
+    this.opts.push(this.pageSize);
     this.opts.push(this.filter);
     this.opts.push(this.expand);
     this.opts.push(this.select);
@@ -20,7 +21,7 @@ export default class DataSourceModel {
 
   getUrl(): string {
     const baseUrl = settings.URL_DATA;
-    const { path, opts, pageSize } = this;
-    return `${baseUrl}/${path}?$format=json&$top=${pageSize}&$inlinecount=allpages&${opts.filter(op => op).join('&')}`;
+    const { path, opts } = this;
+    return `${baseUrl}/${path}?$format=json&$inlinecount=allpages&${opts.filter(op => op).join('&')}`;
   }
 }

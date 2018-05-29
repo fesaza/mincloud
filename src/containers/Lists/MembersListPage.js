@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestMembers, filterItems } from '../../actions/MembersActions';
+import { requestMembers, filterItems } from '../../actions/DataItemsActions';
 import createListPages from './CreateListPages';
 
 

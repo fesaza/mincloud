@@ -2,7 +2,7 @@
 
 import { put, call, takeLatest, fork, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import * as membersActions from '../actions/MembersActions';
+import * as membersActions from '../actions/DataItemsActions';
 import * as configActions from '../actions/ConfigActions';
 import { fetchConfigFeature } from './Config';
 import DataSourceModel from '../models/DataSourceModel';

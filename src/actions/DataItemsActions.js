@@ -12,16 +12,10 @@ export function requestMembers(dataSource) {
   };
 }
 
-export function receiveMembers(members) {
+export function receiveMembers(items) {
   return {
     type: RECEIVE_MEMBERS,
-    members,
-  };
-}
-
-export function restartMembersCache() {
-  return {
-    type: RESTART_MEMBERS_CACHE,
+    items,
   };
 }
 
