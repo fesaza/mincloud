@@ -16,7 +16,12 @@ const GridList = ({
 }) => (
   <Card style={{ opacity: isFetching ? 0.5 : 1 }}>
     <CardText>
-      <ListHeader icon={configuration.icon} onFilter={onFilter} />
+      <ListHeader
+        icon={configuration.icon}
+        onFilter={onFilter}
+        canFilter={configuration.canFilter}
+        canAdd={configuration.canAdd}
+      />
       <DataTable baseId={configuration.id}>
         <TableHeader>
           <TableRow selectable={false}>
