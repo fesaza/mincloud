@@ -5,6 +5,8 @@
   "membersGrid":{
     "id":"membersGrid",
     "type": "Feature",
+    "title": "Lista de miembros",
+    "toolbarTitle": "Lista de personas",
     "component":{
       "id":"MemberList",
       "type":"GridList",

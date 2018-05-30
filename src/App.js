@@ -11,39 +11,22 @@ import './App.css';
 class App extends PureComponent {
   static propTypes = {
     location: PropTypes.object.isRequired,
+    toolbarTitle: PropTypes.string.isRequired,
   };
 
-  constructor(props) {
-    super();
-    this.state = { toolbarTitle: this.getCurrentTitle(props) };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ toolbarTitle: this.getCurrentTitle(nextProps) });
-  }
-
-  getCurrentTitle = (/* { location: { pathname } } */) =>
-
-    'Feature'
-    // const lastSection = pathname.substring(pathname.lastIndexOf('/') + 1);
-    // if (!lastSection) {
-    //   return labels.addMembers;
-    // }
-
-    // return toTitle(lastSection);
-  ;
-
-  getMarkup = () => {
-    const { toolbarTitle } = this.state;
-    const { location } = this.props;
+  render = () => {
+    const { toolbarTitle, location } = this.props;
     return (
-      <AppPage toolbarTitle={toolbarTitle} location={location} />
+      <AppPage toolbarTitle={toolbarTitle || location.pathname} location={location} />
     );
   }
-
-  render = () => (
-    this.getMarkup()
-  )
 }
 
-export default connect()(withRouter(App));
+const mapStateToProps = (state) => {
+  const { config } = state;
+  return {
+    toolbarTitle: config.toolbarTitle,
+  };
+};
+
+export default connect(mapStateToProps)(withRouter(App));

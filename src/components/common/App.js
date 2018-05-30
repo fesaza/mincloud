@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import NavItemLink from './NavItemLink';
 import { navItems } from '../../utils/MenuItems';
 import Home from '../home/HomePage';
-//import Members from '../../containers/Lists/MembersListPage';
 import Feature from '../../containers/feature/Feature';
 
 const styles = {

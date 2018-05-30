@@ -17,6 +17,7 @@ const config = (state = initialState, action) => {
     case configActions.RECEIVE_CONFIG_FEATURE: {
       const newState = {
         ...state,
+        toolbarTitle: action.configuration.toolbarTitle || state.toolbarTitle,
       };
       newState[action.featureId] = {
         ...action.configuration,

@@ -19,12 +19,19 @@ describe('Config reducers', () => {
       },
     });
 
+    const title = 'Lista de miembros';
+    const expectedState = {
+      toolbarTitle: title,
+    };
+
     expect(reducer({}, {
       type: actions.RECEIVE_CONFIG_FEATURE,
       featureId,
       configuration: {
         id: featureId,
         type: 'Feature',
+        title,
+        toolbarTitle: title,
       },
     }))
       .toEqual({
@@ -32,7 +39,10 @@ describe('Config reducers', () => {
           id: featureId,
           type: 'Feature',
           isFetching: false,
+          title,
+          toolbarTitle: title,
         },
+        ...expectedState,
       });
   });
 });
