@@ -5,13 +5,10 @@ import {
   CardText,
   DataTable,
   TableBody,
-  TableRow,
-  TableColumn,
 } from 'react-md';
 import ListHeader from './ListHeader';
 import GridColumnHeader from './GridColumnHeader';
 import GridRow from './GridRow';
-import ActionList from '../actions/ActionList';
 
 const GridList = ({
   items, isFetching, onFilter, configuration,
@@ -31,20 +28,12 @@ const GridList = ({
         />
         <TableBody>
           {items.map(dataItem => (
-            <TableRow key={dataItem.Id} selectable={false}>
-              {configuration.itemActions.length > 0 ? (
-                <TableColumn>
-                  <ActionList actions={configuration.itemActions} />
-                </TableColumn>
-                ) : undefined
-              }
-              <GridRow
-                key={dataItem.id}
-                dataItem={dataItem}
-                itemActions={configuration.itemActions}
-                fields={configuration.fields}
-              />
-            </TableRow>
+            <GridRow
+              key={dataItem.Id}
+              dataItem={dataItem}
+              fields={configuration.fields}
+              itemActions={configuration.itemActions}
+            />
           ))}
         </TableBody>
       </DataTable>

@@ -8,6 +8,7 @@ const ActionList = ({ actions }) => (
     (
       <Button
         key={action.id}
+        className="actionButton"
         flat
         secondary
         tooltipLabel={action.tooltipLabel}
