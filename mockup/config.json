@@ -24,6 +24,9 @@
         { "id": "1", "label": "Nombre completo de la persona", "code": "CECENombre"},
         { "id": "2", "label": "Clasificación", "code": "Clasificacion"},
         { "id": "3", "label": "Sexo", "code": "Sexo"}
+      ],
+      "itemActions": [
+        { "id": "2", "type": "deleteItem", "label": "Eliminar", "icon": "delete", "tooltipLabel": "Delete item" }
       ]
     }
   },

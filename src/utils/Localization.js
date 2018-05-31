@@ -11,6 +11,7 @@ const labels = new LocalizedStrings({
     addItem: 'Crear',
     editItem: 'Editar registro',
     deleteItem: 'Eliminar registro',
+    actions: 'Acciones',
   },
   en: {
     membersTitle: 'Members',
@@ -22,6 +23,7 @@ const labels = new LocalizedStrings({
     addItem: 'Create',
     editItem: 'Edit item',
     deleteItem: 'Delete item',
+    actions: 'Actions',
   },
 });
 

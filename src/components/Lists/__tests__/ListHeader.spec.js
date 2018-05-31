@@ -28,4 +28,3 @@ describe('Test list Header', () => {
     //expect(wrapper.contains('search')).toEqual(false);
   });
 });
-

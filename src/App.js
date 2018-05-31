@@ -11,8 +11,12 @@ import './App.css';
 class App extends PureComponent {
   static propTypes = {
     location: PropTypes.object.isRequired,
-    toolbarTitle: PropTypes.string.isRequired,
+    toolbarTitle: PropTypes.string,
   };
+
+  static defaultProps = {
+    toolbarTitle: 'Feature',
+  }
 
   render = () => {
     const { toolbarTitle, location } = this.props;

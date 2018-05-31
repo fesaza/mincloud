@@ -4,12 +4,14 @@ import {
   Card,
   CardText,
   DataTable,
-  TableHeader,
-  TableRow,
   TableBody,
+  TableRow,
   TableColumn,
 } from 'react-md';
 import ListHeader from './ListHeader';
+import GridColumnHeader from './GridColumnHeader';
+import GridRow from './GridRow';
+import ActionList from '../actions/ActionList';
 
 const GridList = ({
   items, isFetching, onFilter, configuration,
@@ -23,17 +25,25 @@ const GridList = ({
         canAdd={configuration.canAdd}
       />
       <DataTable baseId={configuration.id}>
-        <TableHeader>
-          <TableRow selectable={false}>
-            {configuration.fields.map(f => <TableColumn key={f.id} >{f.label}</TableColumn>)}
-          </TableRow>
-        </TableHeader>
+        <GridColumnHeader
+          fields={configuration.fields}
+          hasActions={configuration.itemActions.length > 0}
+        />
         <TableBody>
           {items.map(dataItem => (
             <TableRow key={dataItem.Id} selectable={false}>
-              {configuration.fields.map(f =>
-                <TableColumn key={f.id}>{dataItem[f.code]}</TableColumn>)
+              {configuration.itemActions.length > 0 ? (
+                <TableColumn>
+                  <ActionList actions={configuration.itemActions} />
+                </TableColumn>
+                ) : undefined
               }
+              <GridRow
+                key={dataItem.id}
+                dataItem={dataItem}
+                itemActions={configuration.itemActions}
+                fields={configuration.fields}
+              />
             </TableRow>
           ))}
         </TableBody>
