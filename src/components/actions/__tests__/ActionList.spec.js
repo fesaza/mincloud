@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'react-md'; 
 import { shallow } from 'enzyme';
 import ActionList from '../ActionList';
 
