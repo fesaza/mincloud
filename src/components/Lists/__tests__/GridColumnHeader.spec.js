@@ -23,13 +23,15 @@ describe('ActionList tests', () => {
     },
   ];
 
+  const fnNode = n => typeof n.type() !== 'string';
+
   it('should list of headers and action', () => {
     const wrapper = shallow((<GridColumnHeader fields={itemActions} hasActions />));
-    expect(wrapper.findWhere(n => typeof n.type() !== 'string').length).toEqual(5 + itemActions.length);
+    expect(wrapper.findWhere(fnNode).length).toEqual(5 + itemActions.length);
   });
 
   it('should list of headers without action', () => {
     const wrapper = shallow((<GridColumnHeader fields={itemActions} hasActions={false} />));
-    expect(wrapper.findWhere(n => typeof n.type() !== 'string').length).toEqual(3 + itemActions.length);
+    expect(wrapper.findWhere(fnNode).length).toEqual(3 + itemActions.length);
   });
 });
