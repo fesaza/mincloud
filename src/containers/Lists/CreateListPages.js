@@ -49,7 +49,7 @@ const createListPage = () => {
 
     render() {
       const { configuration } = this.props;
-      const ListComponent = configuration.type === ComponentTypes.CardList ? CardList : GridList;
+      const ListComponent = configuration.type === ComponentTypes.CARDLIST ? CardList : GridList;
       return (
         <ListComponent {...this.props} onFilter={this.getOnFilter()} />
       );

@@ -10,13 +10,16 @@ class FeaturePage extends Component {
 
   componentDidMount() {
     const { load, match } = this.props;
-    const { featureId } = match.params;
+    // you can pass featureId via params with route (url) or via props
+    // todo: pending for validate nesting features, currently is causing infinite loop
+    const { featureId } = match ? match.params : this.props;
     load(featureId);
   }
 
   getBaseComponent = () => {
     const { match } = this.props;
-    const config = this.props[match.params.featureId];
+    const { featureId } = match ? match.params : this.props;
+    const config = this.props[featureId];
     const ChildComp = createComponentFeature(config);
     return (<ChildComp {...this.props} />);
   }

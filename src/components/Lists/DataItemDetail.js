@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox, TextField, Grid, Cell, FontIcon } from 'react-md';
-import { DateField } from '../common';
+import { DateField } from '../formControls';
 
 const DataItemDetail = ({ dataItem }) => (
   <Grid>
