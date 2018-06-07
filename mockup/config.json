@@ -72,6 +72,17 @@
                           "id": "floating-password",
                           "label": "Enter your password"
                         }
+                      },
+                      {
+                        "id": "membersForm5",
+                        "type": "Field",
+                        "fieldType": "email",
+                        "textProperties":{
+                          "id": "floating-center-title",
+                          "label": "Email",
+                          "lineDirection": "center",
+                          "placeholder":"Type email"
+                        }
                       }
                     ]
                   }

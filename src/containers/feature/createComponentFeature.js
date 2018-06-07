@@ -3,8 +3,7 @@ import { Grid, Cell } from 'react-md';
 import * as ComponentTypes from '../../models/ComponentTypes';
 import List from '../Lists/MembersListPage';
 import Form from '../forms/Form';
-import { TextField, DateField } from '../../components/formControls';
-import Feature from './Feature';
+import { TextField, DateField, EmailField } from '../../components/formControls';
 
 const getGrid = component => (
   <Grid key={component.id}>
@@ -22,6 +21,8 @@ const getField = (component) => {
       return (<TextField key={component.id} {...component} />);
     case ComponentTypes.FieldTypes.DATE:
       return (<DateField key={component.id} />);
+    case ComponentTypes.FieldTypes.EMAIL:
+      return (<EmailField key={component.id} {...component} />);
     default:
       return (<TextField key={component.id} {...component} />);
   }

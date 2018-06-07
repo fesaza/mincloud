@@ -11,4 +11,5 @@ export const CELL = 'Cell';
 export const FieldTypes = {
   TEXT: 'text',
   DATE: 'date',
+  EMAIL: 'email',
 };
