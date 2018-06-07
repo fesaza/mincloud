@@ -4,8 +4,12 @@
   ],
   "nestedFeature":{
     "id": "nestedFeature",
-    "type": "FeatureNested",
-    "refId": "complexFeature"
+    "type": "Feature",
+    "component":{
+      "id": "nestedFeature2",
+      "type": "FeatureNested",
+      "refId": "complexFeature"
+    }
   },
   "complexFeature":{
     "id": "complexFeature",

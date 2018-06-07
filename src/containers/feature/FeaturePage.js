@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import createComponentFeature from './createComponentFeature';
 
-class FeaturePage extends Component {
+class FeaturePage extends PureComponent {
   static propTypes = {
     load: PropTypes.func.isRequired,
     match: PropTypes.object.isRequired,
@@ -11,9 +11,11 @@ class FeaturePage extends Component {
   componentDidMount() {
     const { load, match } = this.props;
     // you can pass featureId via params with route (url) or via props
-    // todo: pending for validate nesting features, currently is causing infinite loop
+    // when you pass the featureId via prop is because you are using this component as a nested feature
     const { featureId } = match ? match.params : this.props;
-    load(featureId);
+    if (!this.props[featureId]) {
+      load(featureId);
+    }
   }
 
   getBaseComponent = () => {

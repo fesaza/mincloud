@@ -3,6 +3,7 @@ import { Grid, Cell } from 'react-md';
 import * as ComponentTypes from '../../models/ComponentTypes';
 import List from '../Lists/MembersListPage';
 import Form from '../forms/Form';
+import Feature from './Feature';
 import { TextField, DateField, EmailField } from '../../components/formControls';
 
 const getGrid = component => (
@@ -39,8 +40,8 @@ function getComponent(component) {
       return (<Form key={component.id} configuration={component} />);
     case ComponentTypes.FIELD:
       return getField(component);
-    // case ComponentTypes.FEATURE_NESTED:
-    //   return (<Feature featureId={component.refId} />);
+    case ComponentTypes.FEATURE_NESTED:
+      return (<Feature featureId={component.refId} />);
     default:
       if (component.component) {
         return getComponent(component.component);
