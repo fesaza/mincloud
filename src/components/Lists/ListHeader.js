@@ -14,19 +14,19 @@ const ListHeader = ({
       <FontIcon style={{ fontSize: '40px' }}>{icon}</FontIcon>
     </Cell>
     <Cell size={9}>
-      {canFilter ?
+      {canFilter &&
       (<TextField
         id="filterCards"
         name="filterCards"
         leftIcon={<FontIcon>search</FontIcon>}
         placeholder={labels.filter}
         onChange={onFilter}
-      />) : ''
+      />)
       }
     </Cell>
     <Cell size={1} />
     <Cell size={1}>
-      {canAdd ? (
+      {canAdd && (
         <Button
           tooltipLabel={labels.addItem}
           style={styleButton}
@@ -35,7 +35,7 @@ const ListHeader = ({
           mini
         >
           add_circle_outline
-        </Button>) : ''}
+        </Button>)}
     </Cell>
   </Grid>
 );

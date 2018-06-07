@@ -10,11 +10,11 @@ const GridRowColumns = ({ dataItem, fields }) => (
 
 const GridRow = ({ dataItem, fields, itemActions }) => (
   <TableRow selectable={false}>
-    {itemActions.length > 0 ? (
+    {itemActions.length > 0 && (
       <TableColumn>
         <ActionList actions={itemActions} />
       </TableColumn>
-      ) : undefined
+      )
     }
     <GridRowColumns
       dataItem={dataItem}
